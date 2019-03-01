@@ -143,6 +143,7 @@ class E57:
                   colors=False,
                   row_column=False,
                   transform=True,
+                  gps_time=False,
                   ignore_missing_fields=False) -> Dict:
         header = self.get_header(index)
         n_points = header.point_count
@@ -157,6 +158,8 @@ class E57:
         if row_column:
             fields.append("rowIndex")
             fields.append("columnIndex")
+        if gps_time:
+            fields.append("gpsTime")
         fields.append("cartesianInvalidState")
 
         for field in fields[:]:
